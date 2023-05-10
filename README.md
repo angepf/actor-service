@@ -1,2 +1,0 @@
-# actor-service
-actor-service
