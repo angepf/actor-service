@@ -52,9 +52,9 @@ pipeline {
           }
         }
         stage('Deploy') {
-			steps {
-			    bat "mvn jar:jar deploy:deploy"
-			}
-		}
+	  steps {
+             sh './jenkins/scripts/deliver.sh' 
+          }
+       }
     }
 }
