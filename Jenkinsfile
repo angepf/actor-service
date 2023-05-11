@@ -10,7 +10,7 @@ pipeline {
 
     stages {
 
-        stage('Verificación SCM') {
+        stage('Git pull') {
           steps {
             script {
               checkout scm
@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube analysis') {
+        stage('SonarQube') {
           steps {
             script {
               // requires SonarQube Scanner 2.8+
@@ -53,7 +53,7 @@ pipeline {
         }
         stage('Deploy') {
 	  steps {
-             sh 'nohup ./mvnw spring-boot:run -Dserver.port=8081 &'
+             sh 'mvn spring-boot:run -Dserver.port=8081 &'
           }
        }
     }
