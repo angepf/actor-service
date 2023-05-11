@@ -45,9 +45,10 @@ pipeline {
               // requires SonarQube Scanner 2.8+
               def scannerHome = tool 'sonar-jenkins'
             }
-            withSonarQubeEnv('SonarQube Scanner') {
-              sh "${scannerHome}/bin/sonar-jenkins"
-            }
+            withSonarQubeEnv(credentialsId: 'squ_1039147d228a30ef65fe0e3f231c47506bdeaec4', installationName: 'sonar-jenkins') { 
+		    // You can override the credential to be used
+      		sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    		}
           }
         }
         stage('Deploy') {
