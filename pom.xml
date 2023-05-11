@@ -150,6 +150,8 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <username>quisange</username>
+                    <password>pamiD.1402</password>
                     <repository>quisange/tesis</repository>
                     <tag>${project.artifactId}</tag>
                     <buildArgs>
